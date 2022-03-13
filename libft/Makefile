@@ -1,19 +1,29 @@
-CC=gcc
-CFLAGS=-Wall -Wextra -Werror -Iincludes
-HEADERS=libft.h
-SRC = ./*.c
-COMP = ${SRC:.c=.o}
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
 
-all: ${NAME}
+SRCS = 
+OBJS =
+SRCS_Bonus = 
+OBJS_Bonus = 
 
-${NAME}: ${HEADERS} ${COMP}
-	ar rcs ${NAME} ${COMP}
+.c.o: $(SRCS)
+	$(CC) $(CFLAGS) -c $(SRCS) -o $(<:.c=.o)
+
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
+
+bonus: $(OBJS_B)
+	ar rcs $(NAME) $(OBJS_Bonus)
+
+all: $(NAME)
 
 clean:
-	rm -f ${COMP}
+	rm -f $(OBJS) $(OBJS_Bonus)
 
 fclean: clean
-	rm -f ${NAME}
+	rm -f $(NAME)
 
-re: fclean all
+re: clean all
+
+.PHONY: bonus all clean fclean re
