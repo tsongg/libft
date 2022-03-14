@@ -6,9 +6,11 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 16:39:41 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/13 16:39:46 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/14 21:52:46 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memset(void *dest, int c, size_t n)
 {
