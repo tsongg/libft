@@ -6,11 +6,13 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 20:54:08 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/14 21:12:07 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/14 21:28:08 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strnstr(const char *haystack, const char *needle, size_t len)
+#include "libft.h"
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
 	size_t	len_needle;
