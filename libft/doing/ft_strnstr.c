@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 18:56:08 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/14 20:51:23 by tsong            ###   ########seoul.kr  */
+/*   Created: 2022/03/14 20:54:08 by tsong             #+#    #+#             */
+/*   Updated: 2022/03/14 21:12:07 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+char	*strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	i;
+	size_t	i;
+	size_t	len_needle;
 
 	i = 0;
-	while (s[i])
+	len_needle = ft_strlen(needle);
+	if (needle == NULL || len_needle == 0)
+		return ((char *)haystack);
+	if (len_needle > len)
+		return (NULL);
+	while (i < len)
 	{
-		if (s[i] == c)
-			return (&s[i]);
+		if (ft_strncmp((char *)&haystack[i], needle, len_needle) == 0)
+		{
+			if (i + len_needle > len)
+				return (NULL);
+			return ((char *)&haystack[i]);
+		}
 		i++;
 	}
-	if (c == '\0')
-		return (&s[i]);
 	return (NULL);
 }

@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 18:56:08 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/14 20:51:23 by tsong            ###   ########seoul.kr  */
+/*   Created: 2022/03/14 20:54:34 by tsong             #+#    #+#             */
+/*   Updated: 2022/03/14 21:05:55 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+void	*calloc(size_t count, size_t size)
 {
-	int	i;
 
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			return (&s[i]);
-		i++;
-	}
-	if (c == '\0')
-		return (&s[i]);
-	return (NULL);
 }
