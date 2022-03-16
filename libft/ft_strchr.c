@@ -3,25 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: tae98song <tae98song@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 18:56:08 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/14 20:51:23 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/16 19:50:38 by tae98song        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] == c)
-			return (&s[i]);
-		i++;
+		if (*s == c)
+			return ((char *)s);
+		s++;
 	}
 	if (c == '\0')
-		return (&s[i]);
-	return (NULL);
+		return ((char *)s);
+	return (0);
 }

@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: tae98song <tae98song@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 16:31:46 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/13 16:34:34 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/16 19:44:36 by tae98song        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_bzero(void *b, size_t n)
 {

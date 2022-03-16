@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: tae98song <tae98song@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 20:48:38 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/14 20:55:44 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/16 19:54:06 by tae98song        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(const char *s1, const char *s2, size_t n)
+#include "libft.h"
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			i;
 	unsigned char	*b1;
