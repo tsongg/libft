@@ -6,15 +6,15 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 16:29:03 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/13 20:22:01 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/20 17:42:58 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
-	int	nbr;
-	int	sign;
-	int	i;
+	long long	nbr;
+	long long	sign;
+	int			i;
 
 	nbr = 0;
 	sign = 1;
@@ -27,6 +27,10 @@ int	ft_atoi(const char *str)
 		i++;
 	while (str[i] && '0' <= str[i] && str[i] <= '9')
 	{
+		if (sign * nbr > 2147483647)
+			return (-1);
+		if (sign * nbr < -2147483648)
+			return (0);
 		nbr = nbr * 10 + str[i] - '0';
 		i++;
 	}
