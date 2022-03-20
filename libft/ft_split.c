@@ -6,92 +6,108 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 15:33:04 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/20 20:18:41 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/20 22:00:17 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**ft_malloc_error(char **tab)
+size_t	ft_count_wd(const char *str, char c)
 {
-	unsigned int	i;
+	size_t	count;
+	size_t	flag;
+	int		i;
 
+	count = 0;
+	flag = 0;
 	i = 0;
-	while (tab[i])
-		free(tab[i++]);
-	free(tab);
-	return (NULL);
-}
-
-static unsigned int	ft_get_nb_strs(char const *s, char c)
-{
-	unsigned int	i;
-	unsigned int	nb_strs;
-
-	if (!s[0])
-		return (0);
-	i = 0;
-	nb_strs = 0;
-	while (s[i] && s[i] == c)
-		i++;
-	while (s[i])
+	while (str[i])
 	{
-		if (s[i] == c)
+		if (str[i] != c && flag == 0)
 		{
-			nb_strs++;
-			while (s[i] && s[i] == c)
-				i++;
-			continue ;
+			flag = 1;
+			count++;
 		}
+		else if (str[i] == c)
+			flag = 0;
 		i++;
 	}
-	if (s[i - 1] != c)
-		nb_strs++;
-	return (nb_strs);
+	return (count);
 }
 
-static void	ft_get_next_str(char **next_str, unsigned int *next_str_len, char c)
+size_t	ft_wd_len(char const *s, char c)
 {
-	unsigned int	i;
+	size_t	len;
+	int		i;
 
-	*next_str += *next_str_len;
-	*next_str_len = 0;
+	len = 0;
 	i = 0;
-	while (**next_str && **next_str == c)
-		(*next_str)++;
-	while ((*next_str)[i])
+	while (s[i] && s[i] != c)
 	{
-		if ((*next_str)[i] == c)
-			return ;
-		(*next_str_len)++;
+		len++;
 		i++;
 	}
+	return (len);
+}
+
+char	*ft_strndup(const char *s, size_t num)
+{
+	char	*word;
+	char	*temp;
+	int		i;
+
+	word = (char *)malloc(sizeof(char) * (num + 1));
+	if (!word)
+		return (0);
+	temp = word;
+	i = 0;
+	while (num > 0)
+	{
+		temp[i] = s[i];
+		i++;
+		num--;
+	}
+	temp[i] = 0;
+	return (word);
+}
+
+char	**ft_free_str(char **s, int i)
+{
+	while (i--)
+	{
+		free(s[i]);
+		s[i] = NULL;
+	}
+	free(s);
+	s = NULL;
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char			**tab;
-	char			*next_str;
-	unsigned int	next_str_len;
-	unsigned int	nb_strs;
-	unsigned int	i;
+	size_t	nb;
+	size_t	wd_len;
+	size_t	count;
+	char	**result;
 
-	nb_strs = ft_get_nb_strs(s, c);
-	tab = (char **)malloc(sizeof(char *) * (nb_strs + 1));
-	if (!tab || !s)
-		return (NULL);
-	i = 0;
-	next_str = (char *)s;
-	next_str_len = 0;
-	while (i < nb_strs)
+	if (!s)
+		return (0);
+	count = ft_count_wd(s, c);
+	result = (char **)malloc(sizeof(char *) * (count + 1));
+	if (!result)
+		return (0);
+	nb = 0;
+	while (nb < count)
 	{
-		ft_get_next_str(&next_str, &next_str_len, c);
-		tab[i] = (char *)malloc(sizeof(char) * (next_str_len + 1));
-		if (!tab[i])
-			return (ft_malloc_error(tab));
-		ft_strlcpy(tab[i], next_str, next_str_len + 1);
-		i++;
+		while (*s && *s == c)
+			s++;
+		wd_len = ft_wd_len(s, c);
+		result[nb] = ft_strndup(s, wd_len);
+		if (!result[nb])
+			return (ft_free_str(result, nb - 1));
+		s += wd_len;
+		nb++;
 	}
-	tab[i] = NULL;
-	return (tab);
+	result[count] = NULL;
+	return (result);
 }
