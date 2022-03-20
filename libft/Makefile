@@ -21,6 +21,7 @@ FILES = ft_memset ft_bzero \
 
 FILES_B = 	ft_lstnew ft_lstadd_front \
 			ft_lstsize ft_lstsize \
+			ft_lstlast ft_lstadd_back \
 
 
 SRCS_DIR = ./
