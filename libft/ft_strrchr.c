@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tae98song <tae98song@student.42.fr>        +#+  +:+       +#+        */
+/*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 19:30:25 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/16 19:51:38 by tae98song        ###   ########.fr       */
+/*   Updated: 2022/03/20 13:49:32 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strrchr(const char *s, int c)
 	i = ft_strlen(s);
 	if (c == '\0')
 		return ((char *)&s[i]);
-	while (s[i])
+	while (i >= 0)
 	{
 		if (s[i] == c)
 			return ((char *)&s[i]);
-		i++;
+		i--;
 	}
 	return (0);
 }
