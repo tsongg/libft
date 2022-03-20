@@ -19,22 +19,34 @@ FILES = ft_memset ft_bzero \
 		ft_putstr_fd ft_putendl_fd \
 		ft_putnbr_fd \
 
+FILES_B = 	ft_lstnew ft_lstadd_front \
+			ft_lstsize ft_lstsize \
+
+
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
+SRCS_B = $(addprefix $(SRCS_B_DIR), $(addsuffix .c, $(FILES_B)))
+
 
 OBJS_DIR = ./
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
+OBJS_B = $(addprefix $(OBJS_B_DIR), $(addsuffix .o, $(FILES_B)))
+
 
 .c.o: $(SRCS)
 	gcc -Wall -Wextra -Werror -c -o $@ $<
 
 $(NAME): $(OBJS)
-	ar rcs $@ $^
+	ar rcs $(NAME) $^
+
+bonus : $(OBJS_B)
+	ar rcs $(NAME) $^
+
 
 all: $(NAME)
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(OBJS_B)
 
 fclean: clean
 	rm -f $(NAME)
