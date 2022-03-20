@@ -6,7 +6,7 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:45:27 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/20 19:46:25 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/20 20:09:34 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*result;
 	t_list	*curr;
 
-	if (!lst || !f || !(result = ft_lstnew(f(lst->content))))
+	result = ft_lstnew(f(lst->content));
+	if (!lst || !f || !result)
 		return (0);
 	curr = result;
 	lst = lst->next;
 	while (lst)
 	{
-		if (!(curr->next = ft_lstnew(f(lst->content))))
+		curr->next = ft_lstnew(f(lst->content));
+		if (!curr->next)
 		{
 			ft_lstclear(&result, del);
 			return (0);

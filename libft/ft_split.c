@@ -6,7 +6,7 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 15:33:04 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/20 17:43:25 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/20 20:18:41 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,9 @@ char	**ft_split(char const *s, char c)
 	unsigned int	nb_strs;
 	unsigned int	i;
 
-	if (!s)
-		return (NULL);
 	nb_strs = ft_get_nb_strs(s, c);
 	tab = (char **)malloc(sizeof(char *) * (nb_strs + 1));
-	if (!tab)
+	if (!tab || !s)
 		return (NULL);
 	i = 0;
 	next_str = (char *)s;
@@ -88,7 +86,8 @@ char	**ft_split(char const *s, char c)
 	while (i < nb_strs)
 	{
 		ft_get_next_str(&next_str, &next_str_len, c);
-		if (!(tab[i] = (char *)malloc(sizeof(char) * (next_str_len + 1))))
+		tab[i] = (char *)malloc(sizeof(char) * (next_str_len + 1));
+		if (!tab[i])
 			return (ft_malloc_error(tab));
 		ft_strlcpy(tab[i], next_str, next_str_len + 1);
 		i++;

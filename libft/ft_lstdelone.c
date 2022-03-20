@@ -6,13 +6,13 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:44:59 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/20 19:46:03 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/20 20:07:02 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	del(lst->content);
 	free(lst);
