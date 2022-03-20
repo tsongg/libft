@@ -6,7 +6,17 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:45:20 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/20 17:45:20 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/20 19:46:37 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}
