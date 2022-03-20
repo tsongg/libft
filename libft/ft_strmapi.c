@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/20 14:08:36 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/20 14:20:16 by tsong            ###   ########seoul.kr  */
+/*   Created: 2022/03/20 16:34:40 by tsong             #+#    #+#             */
+/*   Updated: 2022/03/20 16:57:00 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	size_t	len;
+	size_t	i;
 	char	*str;
 
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (s == NULL)
+	i = 0;
+	if (s == 0)
 		return (NULL);
-	if (ft_strlen(s) <= start)
-		return (ft_strdup(""));
+	len = ft_strlen(s);
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	ft_strlcpy(str, s + start, len + 1);
+	while (i < len)
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
 	return (str);
 }

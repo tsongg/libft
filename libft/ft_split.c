@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/20 15:33:04 by tsong             #+#    #+#             */
+/*   Updated: 2022/03/20 15:49:33 by tsong            ###   ########seoul.kr  */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static char	**ft_malloc_error(char **tab)
@@ -20,7 +32,7 @@ static unsigned int	ft_get_nb_strs(char const *s, char c)
 		return (0);
 	i = 0;
 	nb_strs = 0;
-	while (s[i] && s[i] == c) //c가 제일 앞에, 여러 개 연속으로 있을 때 패스
+	while (s[i] && s[i] == c)
 		i++;
 	while (s[i])
 	{
@@ -34,7 +46,7 @@ static unsigned int	ft_get_nb_strs(char const *s, char c)
 		i++;
 	}
 	if (s[i - 1] != c)
-		nb_strs++; //마지막이 c로 안 끝났으면 +1
+		nb_strs++;
 	return (nb_strs);
 }
 
@@ -42,12 +54,12 @@ static void	ft_get_next_str(char **next_str, unsigned int *next_str_len, char c)
 {
 	unsigned int	i;
 
-	*next_str += *next_str_len; //실제 next_str 주소 ++
+	*next_str += *next_str_len;
 	*next_str_len = 0;
 	i = 0;
 	while (**next_str && **next_str == c)
 		(*next_str)++;
-	while ((*next_str)[i]) //갯수 샐 때는 지역변수 i 이용
+	while ((*next_str)[i])
 	{
 		if ((*next_str)[i] == c)
 			return ;
@@ -67,7 +79,8 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	nb_strs = ft_get_nb_strs(s, c);
-	if (!(tab = (char **)malloc(sizeof(char *) * (nb_strs + 1)))) //마지막 tab[i]에도 NULL보장
+	tab = (char **)malloc(sizeof(char *) * (nb_strs + 1));
+	if (!tab)
 		return (NULL);
 	i = 0;
 	next_str = (char *)s;
@@ -82,18 +95,4 @@ char	**ft_split(char const *s, char c)
 	}
 	tab[i] = NULL;
 	return (tab);
-}
-
-int	main(void)
-{
-	char			**tab;
-	unsigned int	i;
-
-	i = 0;
-	tab = ft_split("sdsdsdasd", ' ');
-	while (tab[i] != NULL)
-	{
-		printf("%s\n", tab[i]);
-		i++;
-	}
 }

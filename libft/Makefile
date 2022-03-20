@@ -12,6 +12,9 @@ FILES = ft_memset ft_bzero \
 		ft_isascii ft_isprint \
 		ft_toupper ft_tolower \
 		ft_calloc ft_strdup \
+		ft_substr ft_strjoin \
+		ft_strtrim ft_split \
+		ft_itoa ft_strmapi \
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
