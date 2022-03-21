@@ -6,7 +6,7 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 14:40:17 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/20 15:24:33 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/21 12:20:20 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 
-	if (s1 == NULL && s2 == NULL)
-		return (NULL);
+	if (!s1 && !s2)
+		return (0);
 	else if (s1 == NULL && s2 != NULL)
 		return (ft_strdup(s2));
 	else if (s1 != NULL && s2 == NULL)
@@ -28,7 +28,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	len = ft_strlen(s1) + ft_strlen(s2);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
-		return (NULL);
+		return (0);
 	i = 0;
 	j = 0;
 	while (*s1 != 0)

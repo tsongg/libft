@@ -6,7 +6,7 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 16:34:40 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/20 16:58:51 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/21 12:19:16 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	i = 0;
 	if (s == 0)
-		return (NULL);
+		return (0);
 	len = ft_strlen(s);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
-		return (NULL);
+		return (0);
 	while (i < len)
 	{
 		str[i] = f(i, s[i]);
 		i++;
 	}
-	str[i] = '\0';
+	str[i] = 0;
 	return (str);
 }

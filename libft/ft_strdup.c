@@ -6,7 +6,7 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 16:42:55 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/14 21:36:08 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/21 12:18:14 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strdup(const char *str)
 	len = ft_strlen(str);
 	new_str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!new_str)
-		return (NULL);
+		return (0);
 	i = 0;
 	while (str[i])
 	{
