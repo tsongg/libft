@@ -1,7 +1,7 @@
 NAME = libft.a
 
 FILES = ft_memset ft_bzero \
-		ft_memcpy ft_memccpy \
+		ft_memcpy \
 		ft_memmove ft_memchr \
 		ft_memcmp ft_strlen \
 		ft_strlcpy ft_strlcat \

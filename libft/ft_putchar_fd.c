@@ -6,7 +6,7 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:10:44 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/20 17:17:00 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/21 16:38:44 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	if (fd < 0)
-		return ;
 	write(fd, &c, 1);
 }

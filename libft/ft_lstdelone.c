@@ -6,7 +6,7 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:44:59 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/20 20:07:02 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/21 16:37:03 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
+	if (!lst)
+		return ;
 	del(lst->content);
 	free(lst);
 }

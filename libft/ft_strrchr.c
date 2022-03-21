@@ -6,7 +6,7 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 19:30:25 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/20 13:49:32 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/21 16:41:03 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *)&s[i]);
 	while (i >= 0)
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			return ((char *)&s[i]);
 		i--;
 	}

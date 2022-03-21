@@ -6,7 +6,7 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 20:54:08 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/21 12:20:45 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/21 16:40:53 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	j;
 
 	i = 0;
-	if (*needle == '\0')
+	if (!(*needle))
 		return ((char *) haystack);
 	while (haystack[i] && i < len)
 	{

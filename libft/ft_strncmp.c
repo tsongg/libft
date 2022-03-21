@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tae98song <tae98song@student.42.fr>        +#+  +:+       +#+        */
+/*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 20:48:38 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/16 19:54:06 by tae98song        ###   ########.fr       */
+/*   Updated: 2022/03/21 16:40:27 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	i = 0;
 	while (n--)
 	{
-		if (b1[i] != b2[i] || b1[i] == 0 || b2[i] == 0)
+		if (b1[i] != b2[i] || !b1[i] || !b2[i])
 			return (b1[i] - b2[i]);
 		i++;
 	}

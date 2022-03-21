@@ -6,7 +6,7 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 14:08:36 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/21 12:21:01 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/21 16:41:24 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*str;
 
 	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str || s == NULL)
+	if (!str || !s)
 		return (0);
 	if ((unsigned int)ft_strlen(s) <= start)
 		return (ft_strdup(""));
