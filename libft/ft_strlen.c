@@ -6,13 +6,15 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 16:40:51 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/13 16:42:18 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/21 21:02:31 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *s)
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

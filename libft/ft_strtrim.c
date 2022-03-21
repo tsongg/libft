@@ -6,7 +6,7 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 15:22:05 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/21 12:46:14 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/21 20:25:58 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		start++;
 	while (s1[end - 1] && ft_strchr(set, s1[end - 1]))
 	{
-		if (end < 2)
+		if (end - 1 < 1)
 			break ;
 		end--;
 	}
