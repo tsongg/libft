@@ -6,7 +6,7 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:44:06 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/20 19:11:51 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/21 18:50:52 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_list	*ft_lstnew(void *content)
 
 	new = (t_list *)malloc(sizeof(t_list));
 	if (!new)
-		return (NULL);
+		return (0);
 	new->content = content;
-	new->next = NULL;
+	new->next = 0;
 	return (new);
 }

@@ -1,27 +1,21 @@
 NAME = libft.a
 
-FILES = ft_memset ft_bzero \
-		ft_memcpy \
-		ft_memmove ft_memchr \
-		ft_memcmp ft_strlen \
-		ft_strlcpy ft_strlcat \
-		ft_strchr ft_strrchr \
-		ft_strnstr ft_strncmp \
-		ft_atoi ft_isalpha \
-		ft_isdigit ft_isalnum \
-		ft_isascii ft_isprint \
-		ft_toupper ft_tolower \
-		ft_calloc ft_strdup \
-		ft_substr ft_strjoin \
-		ft_strtrim ft_split \
-		ft_itoa ft_strmapi \
-		ft_striteri ft_putchar_fd \
-		ft_putstr_fd ft_putendl_fd ft_putnbr_fd \
+ifdef WITH_BONUS
+	OBJ_FILES = $(OBJECTS) $(OBJECTS_B)
+else
+	OBJ_FILES = $(OBJECTS)
+endif
 
-FILES_B = 	ft_lstnew ft_lstadd_front \
-			ft_lstsize ft_lstlast \
-			ft_lstadd_back ft_lstdelone \
-			ft_lstclear ft_lstiter ft_lstmap \
+FILES = ft_memset ft_bzero ft_memcpy ft_memmove ft_memchr \
+		ft_memcmp ft_strlen ft_strlcpy ft_strlcat ft_strchr \
+		ft_strrchr ft_strnstr ft_strncmp ft_atoi ft_isalpha \
+		ft_isdigit ft_isalnum ft_isascii ft_isprint ft_toupper \
+		ft_tolower ft_calloc ft_strdup ft_substr ft_strjoin \
+		ft_strtrim ft_split ft_itoa ft_strmapi ft_striteri \
+		ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd \
+
+FILES_B = 	ft_lstnew ft_lstadd_front ft_lstsize ft_lstlast \
+			ft_lstadd_back ft_lstdelone ft_lstclear ft_lstiter ft_lstmap \
 
 
 SRCS_DIR = ./
@@ -41,7 +35,7 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $^
 
 bonus : $(OBJS_B)
-	ar rcs $(NAME) $^
+	make WITH_BONUS=1 all
 
 
 all: $(NAME)

@@ -6,11 +6,9 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 16:36:07 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/13 16:36:46 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/21 18:48:52 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isdigit(int c)
 {

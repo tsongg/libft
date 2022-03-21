@@ -6,7 +6,7 @@
 /*   By: tsong <tsong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 15:58:08 by tsong             #+#    #+#             */
-/*   Updated: 2022/03/20 16:32:28 by tsong            ###   ########seoul.kr  */
+/*   Updated: 2022/03/21 18:49:49 by tsong            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ char	*ft_itoa(int n)
 	len = get_len(nbr, plusminus);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
-		return (NULL);
-	str[len--] = '\0';
+		return (0);
+	str[len--] = 0;
 	while (len >= 0)
 	{
-		str[len--] = '0' + nbr % 10;
+		str[len--] = nbr % 10 + '0';
 		nbr /= 10;
 	}
 	if (plusminus == -1)
